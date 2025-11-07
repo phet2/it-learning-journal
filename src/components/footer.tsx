@@ -1,11 +1,17 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { Github, Mail, Heart } from 'lucide-react'
 import Link from 'next/link'
 
 export function Footer() {
   const { language } = useLanguage()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const content = {
     en: {
@@ -38,7 +44,7 @@ export function Footer() {
     }
   }
 
-  const currentContent = content[language]
+  const currentContent = content[!mounted ? 'en' : language]
 
   return (
     <footer className="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mt-16">

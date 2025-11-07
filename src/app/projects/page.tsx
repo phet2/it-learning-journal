@@ -1,10 +1,16 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { ExternalLink, Github, Calendar, Tag } from 'lucide-react'
 import Link from 'next/link'
 export default function ProjectsPage() {
   const { language } = useLanguage()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const content = {
     en: {
@@ -29,7 +35,7 @@ export default function ProjectsPage() {
     }
   }
 
-  const currentContent = content[language]
+  const currentContent = content[!mounted ? 'en' : language]
 
   // Sample projects data
   const projects = [
@@ -99,7 +105,7 @@ export default function ProjectsPage() {
             <div className="p-6">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-lg font-semibold">
-                  {language === 'en' ? project.title : project.titleLao}
+                  {(!mounted ? 'en' : language) === 'en' ? project.title : project.titleLao}
                 </h3>
                 <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
                   {getLevelLabel(project.level)}
@@ -107,7 +113,7 @@ export default function ProjectsPage() {
               </div>
               
               <p className="text-muted-foreground text-sm mb-4">
-                {language === 'en' ? project.description : project.descriptionLao}
+                {(!mounted ? 'en' : language) === 'en' ? project.description : project.descriptionLao}
               </p>
               
               <div className="mb-4">
@@ -126,7 +132,7 @@ export default function ProjectsPage() {
               
               <div className="flex items-center text-xs text-muted-foreground mb-4">
                 <Calendar className="h-3 w-3 mr-1" />
-                {new Date(project.createdAt).toLocaleDateString(language === 'en' ? 'en-US' : 'lo-LA')}
+                {new Date(project.createdAt).toLocaleDateString((!mounted ? 'en' : language) === 'en' ? 'en-US' : 'lo-LA')}
               </div>
               
               <div className="flex space-x-2">

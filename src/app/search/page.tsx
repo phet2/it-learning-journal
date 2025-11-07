@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { useSearch } from '@/lib/hooks/use-search'
 import { Search, BookOpen, FolderOpen, Calendar, Tag, Loader2, Filter, X } from 'lucide-react'
@@ -11,6 +11,11 @@ export default function SearchPage() {
   const [searchType, setSearchType] = useState<'all' | 'lessons' | 'projects'>('all')
   const [levelFilter, setLevelFilter] = useState<string>('all')
   const [showFilters, setShowFilters] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const content = {
     en: {
@@ -77,7 +82,7 @@ export default function SearchPage() {
     }
   }
 
-  const currentContent = content[language]
+  const currentContent = content[!mounted ? 'en' : language]
 
   const filteredResults = results.filter(result => {
     const typeMatch = searchType === 'all' || result.type === searchType.slice(0, -1)
@@ -242,11 +247,11 @@ export default function SearchPage() {
                   </div>
                   
                   <h3 className="text-lg font-semibold mb-2">
-                    {language === 'en' ? result.title : result.titleLao}
+                    {(!mounted ? 'en' : language) === 'en' ? result.title : result.titleLao}
                   </h3>
                   
                   <p className="text-muted-foreground mb-3">
-                    {language === 'en' ? result.description : result.descriptionLao}
+                    {(!mounted ? 'en' : language) === 'en' ? result.description : result.descriptionLao}
                   </p>
 
                   
@@ -353,7 +358,7 @@ export default function SearchPage() {
             {/* Quick Stats */}
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                {language === 'en' ? 'Quick Stats' : 'ສະຖິຕິດ່ວນ'}
+                {(!mounted ? 'en' : language) === 'en' ? 'Quick Stats' : 'ສະຖິຕິດ່ວນ'}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-card p-4 rounded-lg border text-center hover:shadow-md transition-shadow">

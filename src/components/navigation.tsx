@@ -40,21 +40,21 @@ export function Navigation() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            {navItems[language].map((item) => (
+            {navItems[!mounted ? 'en' : language].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary"
               >
                 <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
+                <span>{!mounted ? navItems.en.find(i => i.href === item.href)?.label : item.label}</span>
               </Link>
             ))}
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-4">
-            {navItems[language].map((item) => (
+            {navItems[!mounted ? 'en' : language].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

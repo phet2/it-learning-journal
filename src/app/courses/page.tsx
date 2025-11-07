@@ -1,10 +1,16 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { BookOpen, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
 export default function CoursesPage() {
   const { language } = useLanguage()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const content = {
     en: {
@@ -27,13 +33,13 @@ export default function CoursesPage() {
     }
   }
 
-  const currentContent = content[language]
+  const currentContent = content[!mounted ? 'en' : language]
 
   const levels = [
     {
       id: 'diploma',
       title: currentContent.diploma,
-      description: language === 'en' ? 'Years 1-3 (2019-2022)' : 'ປີທີ 1-3 (2019-2022)',
+      description: (!mounted ? 'en' : language) === 'en' ? 'Years 1-3 (2019-2022)' : 'ປີທີ 1-3 (2019-2022)',
       years: [
         { year: 1, courses: 8, lessons: 45 },
         { year: 2, courses: 6, lessons: 38 },
@@ -44,7 +50,7 @@ export default function CoursesPage() {
     {
       id: 'bachelor',
       title: currentContent.bachelor,
-      description: language === 'en' ? 'Years 1-2 (2022-2024)' : 'ປີທີ 1-2 (2022-2024)',
+      description: (!mounted ? 'en' : language) === 'en' ? 'Years 1-2 (2022-2024)' : 'ປີທີ 1-2 (2022-2024)',
       years: [
         { year: 1, courses: 4, lessons: 32 },
         { year: 2, courses: 2, lessons: 13 }

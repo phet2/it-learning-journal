@@ -1,11 +1,17 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language-context'
 import { BookOpen, FolderOpen, Calendar, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HomePage() {
   const { language } = useLanguage()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const content = {
     en: {
@@ -38,7 +44,7 @@ export default function HomePage() {
     }
   }
 
-  const currentContent = content[language]
+  const currentContent = content[!mounted ? 'en' : language]
 
   const stats = [
     { label: currentContent.stats.courses, value: '8', icon: BookOpen },
@@ -50,20 +56,20 @@ export default function HomePage() {
   const quickLinks = [
     { 
       href: '/courses', 
-      title: language === 'en' ? 'Diploma Years 1-3' : 'ຊັ້ນສູງ ປີ 1-3',
-      description: language === 'en' ? 'Diploma level courses' : 'ວິຊາຮຽນລະດັບຊັ້ນສູງ',
+      title: (!mounted ? 'en' : language) === 'en' ? 'Diploma Years 1-3' : 'ຊັ້ນສູງ ປີ 1-3',
+      description: (!mounted ? 'en' : language) === 'en' ? 'Diploma level courses' : 'ວິຊາຮຽນລະດັບຊັ້ນສູງ',
       icon: BookOpen 
     },
     { 
       href: '/courses', 
-      title: language === 'en' ? 'Bachelor Years 1-2' : 'ປະລິນຍາຕີ ປີ 1-2',
-      description: language === 'en' ? 'Bachelor level courses' : 'ວິຊາຮຽນລະດັບປະລິນຍາຕີ',
+      title: (!mounted ? 'en' : language) === 'en' ? 'Bachelor Years 1-2' : 'ປະລິນຍາຕີ ປີ 1-2',
+      description: (!mounted ? 'en' : language) === 'en' ? 'Bachelor level courses' : 'ວິຊາຮຽນລະດັບປະລິນຍາຕີ',
       icon: BookOpen 
     },
     { 
       href: '/projects', 
-      title: language === 'en' ? 'All Projects' : 'ໂປຣເຈັກທັງໝົດ',
-      description: language === 'en' ? 'Portfolio and projects' : 'ຜົນງານແລະໂປຣເຈັກ',
+      title: (!mounted ? 'en' : language) === 'en' ? 'All Projects' : 'ໂປຣເຈັກທັງໝົດ',
+      description: (!mounted ? 'en' : language) === 'en' ? 'Portfolio and projects' : 'ຜົນງານແລະໂປຣເຈັກ',
       icon: FolderOpen 
     },
   ]
@@ -109,8 +115,8 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-6">{currentContent.timeline}</h2>
         <div className="space-y-4">
           {[
-            { year: '2019-2022', level: language === 'en' ? 'Diploma Years 1-3' : 'ຊັ້ນສູງ ປີ 1-3', courses: 5 },
-            { year: '2022-2024', level: language === 'en' ? 'Bachelor Years 1-2' : 'ປະລິນຍາຕີ ປີ 1-2', courses: 3 },
+            { year: '2019-2022', level: (!mounted ? 'en' : language) === 'en' ? 'Diploma Years 1-3' : 'ຊັ້ນສູງ ປີ 1-3', courses: 5 },
+            { year: '2022-2024', level: (!mounted ? 'en' : language) === 'en' ? 'Bachelor Years 1-2' : 'ປະລິນຍາຕີ ປີ 1-2', courses: 3 },
           ].map((period, index) => (
             <div key={index} className="flex items-center space-x-4 p-4 bg-card rounded-lg border">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">

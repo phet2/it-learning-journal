@@ -20,9 +20,9 @@ const mockData: SearchResult[] = [
   {
     id: '1',
     type: 'lesson',
-    title: 'HTML & CSS พื้นฐาน',
+    title: 'HTML & CSS Basics',
     titleLao: 'HTML & CSS ພື້ນຖານ',
-    description: 'เรียนรู้การสร้างเว็บไซต์ด้วย HTML และ CSS',
+    description: 'Learn to build websites using HTML and CSS',
     descriptionLao: 'ຮຽນຮູ້ການສ້າງເວັບໄຊທ໌ດ້ວຍ HTML ແລະ CSS',
     tags: ['HTML', 'CSS', 'Web Development'],
     level: 'diploma-1',
@@ -31,9 +31,9 @@ const mockData: SearchResult[] = [
   {
     id: '2',
     type: 'lesson',
-    title: 'JavaScript เบื้องต้น',
+    title: 'JavaScript Basics',
     titleLao: 'JavaScript ເບື້ອງຕົ້ນ',
-    description: 'พื้นฐานการเขียนโปรแกรมด้วย JavaScript',
+    description: 'Learn programming fundamentals with JavaScript',
     descriptionLao: 'ພື້ນຖານການຂຽນໂປຣແກຣມດ້ວຍ JavaScript',
     tags: ['JavaScript', 'Programming', 'Frontend'],
     level: 'diploma-1',
@@ -44,7 +44,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Database Design',
     titleLao: 'ການອອກແບບຖານຂໍ້ມູນ',
-    description: 'หลักการออกแบบฐานข้อมูลเชิงสัมพันธ์',
+    description: 'Principles of relational database design',
     descriptionLao: 'ຫຼັກການອອກແບບຖານຂໍ້ມູນເຊີງສຳພັນ',
     tags: ['Database', 'SQL', 'Design'],
     level: 'diploma-1',
@@ -56,7 +56,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'PHP Programming',
     titleLao: 'ການຂຽນໂປຣແກຣມ PHP',
-    description: 'การเขียนโปรแกรมเว็บด้วย PHP',
+    description: 'Web programming with PHP',
     descriptionLao: 'ການຂຽນໂປຣແກຣມເວັບດ້ວຍ PHP',
     tags: ['PHP', 'Backend', 'Web Development'],
     level: 'diploma-2',
@@ -67,7 +67,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'MySQL Database',
     titleLao: 'ຖານຂໍ້ມູນ MySQL',
-    description: 'การจัดการฐานข้อมูลด้วย MySQL',
+    description: 'Database management with MySQL',
     descriptionLao: 'ການຈັດການຖານຂໍ້ມູນດ້ວຍ MySQL',
     tags: ['MySQL', 'Database', 'SQL'],
     level: 'diploma-2',
@@ -78,7 +78,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Object-Oriented Programming',
     titleLao: 'ການຂຽນໂປຣແກຣມແບບ OOP',
-    description: 'หลักการเขียนโปรแกรมเชิงวัตถุ',
+    description: 'Principles of object-oriented programming',
     descriptionLao: 'ຫຼັກການຂຽນໂປຣແກຣມເຊີງວັດຖຸ',
     tags: ['OOP', 'Programming', 'Concepts'],
     level: 'diploma-2',
@@ -90,7 +90,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Laravel Framework',
     titleLao: 'Laravel Framework',
-    description: 'การพัฒนาเว็บแอปพลิเคชันด้วย Laravel',
+    description: 'Develop web applications using Laravel',
     descriptionLao: 'ການພັດທະນາເວັບແອັບພລິເຄຊັນດ້ວຍ Laravel',
     tags: ['Laravel', 'PHP', 'Framework'],
     level: 'diploma-3',
@@ -101,7 +101,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'API Development',
     titleLao: 'ການພັດທະນາ API',
-    description: 'การสร้างและใช้งาน REST API',
+    description: 'Create and use REST APIs',
     descriptionLao: 'ການສ້າງແລະໃຊ້ງານ REST API',
     tags: ['API', 'REST', 'Backend'],
     level: 'diploma-3',
@@ -112,7 +112,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Project Management',
     titleLao: 'ການຈັດການໂປຣເຈັກ',
-    description: 'หลักการจัดการโปรเจคซอฟต์แวร์',
+    description: 'Principles of software project management',
     descriptionLao: 'ຫຼັກການຈັດການໂປຣເຈັກຊອບແວ',
     tags: ['Project Management', 'Agile', 'Scrum'],
     level: 'diploma-3',
@@ -124,7 +124,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'React.js Fundamentals',
     titleLao: 'React.js ພື້ນຖານ',
-    description: 'การเรียนรู้ React.js สำหรับการพัฒนา Frontend',
+    description: 'Learn React.js for Frontend development',
     descriptionLao: 'ການຮຽນຮູ້ React.js ສຳລັບການພັດທະນາ Frontend',
     tags: ['React', 'JavaScript', 'Frontend'],
     level: 'bachelor-1',
@@ -135,7 +135,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Node.js & Express',
     titleLao: 'Node.js & Express',
-    description: 'การพัฒนา Backend ด้วย Node.js และ Express',
+    description: 'Backend development with Node.js and Express',
     descriptionLao: 'ການພັດທະນາ Backend ດ້ວຍ Node.js ແລະ Express',
     tags: ['Node.js', 'Express', 'Backend'],
     level: 'bachelor-1',
@@ -146,7 +146,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'MongoDB Database',
     titleLao: 'ຖານຂໍ້ມູນ MongoDB',
-    description: 'การใช้งานฐานข้อมูล NoSQL ด้วย MongoDB',
+    description: 'Work with NoSQL databases using MongoDB',
     descriptionLao: 'ການໃຊ້ງານຖານຂໍ້ມູນ NoSQL ດ້ວຍ MongoDB',
     tags: ['MongoDB', 'NoSQL', 'Database'],
     level: 'bachelor-1',
@@ -158,7 +158,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Next.js Full-Stack',
     titleLao: 'Next.js Full-Stack',
-    description: 'การพัฒนาแอปพลิเคชัน Full-Stack ด้วย Next.js',
+    description: 'Build full-stack applications with Next.js',
     descriptionLao: 'ການພັດທະນາແອັບພລິເຄຊັນ Full-Stack ດ້ວຍ Next.js',
     tags: ['Next.js', 'React', 'Full-Stack'],
     level: 'bachelor-2',
@@ -169,7 +169,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'TypeScript Advanced',
     titleLao: 'TypeScript ຂັ້ນສູງ',
-    description: 'การใช้งาน TypeScript ในระดับขั้นสูง',
+    description: 'Advanced usage of TypeScript',
     descriptionLao: 'ການໃຊ້ງານ TypeScript ໃນລະດັບຂັ້ນສູງ',
     tags: ['TypeScript', 'JavaScript', 'Types'],
     level: 'bachelor-2',
@@ -180,7 +180,7 @@ const mockData: SearchResult[] = [
     type: 'lesson',
     title: 'Cloud Computing',
     titleLao: 'Cloud Computing',
-    description: 'การใช้งานบริการ Cloud Computing',
+    description: 'Using Cloud Computing services',
     descriptionLao: 'ການໃຊ້ງານບໍລິການ Cloud Computing',
     tags: ['Cloud', 'AWS', 'DevOps'],
     level: 'bachelor-2',
@@ -192,7 +192,7 @@ const mockData: SearchResult[] = [
     type: 'project',
     title: 'E-Commerce Website',
     titleLao: 'ເວັບໄຊທ໌ອີຄອມເມີສ',
-    description: 'เว็บไซต์ขายของออนไลน์ด้วย Laravel',
+    description: 'Online shopping website built with Laravel',
     descriptionLao: 'ເວັບໄຊທ໌ຂາຍຂອງອອນລາຍດ້ວຍ Laravel',
     tags: ['Laravel', 'PHP', 'MySQL', 'E-Commerce'],
     level: 'diploma-3',
@@ -203,7 +203,7 @@ const mockData: SearchResult[] = [
     type: 'project',
     title: 'Task Management App',
     titleLao: 'ແອັບຈັດການງານ',
-    description: 'แอปพลิเคชันจัดการงานด้วย React และ Node.js',
+    description: 'Task management app using React and Node.js',
     descriptionLao: 'ແອັບພລິເຄຊັນຈັດການງານດ້ວຍ React ແລະ Node.js',
     tags: ['React', 'Node.js', 'MongoDB', 'Full-Stack'],
     level: 'bachelor-1',
@@ -214,7 +214,7 @@ const mockData: SearchResult[] = [
     type: 'project',
     title: 'IT Learning Journal',
     titleLao: 'ບັນທຶກການຮຽນ IT',
-    description: 'เว็บไซต์บันทึกการเรียน IT ด้วย Next.js',
+    description: 'IT learning journal website using Next.js',
     descriptionLao: 'ເວັບໄຊທ໌ບັນທຶກການຮຽນ IT ດ້ວຍ Next.js',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'MDX'],
     level: 'bachelor-2',
@@ -222,6 +222,7 @@ const mockData: SearchResult[] = [
   }
 ]
 
+// 🔍 Search Hook
 export function useSearch() {
   const [query, setQuery] = useState('')
   const [debouncedQuery, setDebouncedQuery] = useState('')
@@ -235,10 +236,11 @@ export function useSearch() {
   })
 
   const debouncedSetQuery = useMemo(
-    () => debounce((value: string) => {
-      setDebouncedQuery(value)
-      setIsLoading(false)
-    }, 300),
+    () =>
+      debounce((value: string) => {
+        setDebouncedQuery(value)
+        setIsLoading(false)
+      }, 300),
     []
   )
 
@@ -254,49 +256,41 @@ export function useSearch() {
 
   const results = useMemo(() => {
     if (!debouncedQuery) return mockData
-    
+
     const query = debouncedQuery.toLowerCase()
-    
+
     return mockData
-      .filter(item => 
-        item.title.toLowerCase().includes(query) ||
-        item.titleLao.includes(debouncedQuery) ||
-        item.description.toLowerCase().includes(query) ||
-        item.descriptionLao.includes(debouncedQuery) ||
-        item.tags.some(tag => tag.toLowerCase().includes(query))
+      .filter(
+        (item) =>
+          item.title.toLowerCase().includes(query) ||
+          item.titleLao.includes(debouncedQuery) ||
+          item.description.toLowerCase().includes(query) ||
+          item.descriptionLao.includes(debouncedQuery) ||
+          item.tags.some((tag) => tag.toLowerCase().includes(query))
       )
       .sort((a, b) => {
-        // Prioritize exact title matches
-        const aExactTitle = a.title.toLowerCase() === query || a.titleLao === debouncedQuery
-        const bExactTitle = b.title.toLowerCase() === query || b.titleLao === debouncedQuery
-        if (aExactTitle && !bExactTitle) return -1
-        if (!aExactTitle && bExactTitle) return 1
-        
-        // Prioritize title matches over description matches
-        const aTitleMatch = a.title.toLowerCase().includes(query) || a.titleLao.includes(debouncedQuery)
-        const bTitleMatch = b.title.toLowerCase().includes(query) || b.titleLao.includes(debouncedQuery)
+        const aExact = a.title.toLowerCase() === query || a.titleLao === debouncedQuery
+        const bExact = b.title.toLowerCase() === query || b.titleLao === debouncedQuery
+        if (aExact && !bExact) return -1
+        if (!aExact && bExact) return 1
+
+        const aTitleMatch = a.title.toLowerCase().includes(query)
+        const bTitleMatch = b.title.toLowerCase().includes(query)
         if (aTitleMatch && !bTitleMatch) return -1
         if (!aTitleMatch && bTitleMatch) return 1
-        
-        // Prioritize tag matches
-        const aTagMatch = a.tags.some(tag => tag.toLowerCase().includes(query))
-        const bTagMatch = b.tags.some(tag => tag.toLowerCase().includes(query))
-        if (aTagMatch && !bTagMatch) return -1
-        if (!aTagMatch && bTagMatch) return 1
-        
-        // Sort by type (lessons first, then projects)
-        if (a.type !== b.type) {
-          return a.type === 'lesson' ? -1 : 1
-        }
-        
-        return 0
+
+        const aTag = a.tags.some((tag) => tag.toLowerCase().includes(query))
+        const bTag = b.tags.some((tag) => tag.toLowerCase().includes(query))
+        if (aTag && !bTag) return -1
+        if (!aTag && bTag) return 1
+
+        return a.type === 'lesson' ? -1 : 1
       })
   }, [debouncedQuery])
 
-  // Save search to history
   const saveToHistory = (searchQuery: string) => {
     if (searchQuery.trim() && !searchHistory.includes(searchQuery)) {
-      const newHistory = [searchQuery, ...searchHistory.slice(0, 9)] // Keep last 10 searches
+      const newHistory = [searchQuery, ...searchHistory.slice(0, 9)]
       setSearchHistory(newHistory)
       if (typeof window !== 'undefined') {
         localStorage.setItem('search-history', JSON.stringify(newHistory))
@@ -304,12 +298,9 @@ export function useSearch() {
     }
   }
 
-  // Enhanced setQuery that saves to history
   const setQueryWithHistory = (newQuery: string) => {
     setQuery(newQuery)
-    if (newQuery.trim()) {
-      saveToHistory(newQuery)
-    }
+    if (newQuery.trim()) saveToHistory(newQuery)
   }
 
   return {
