@@ -1,0 +1,105 @@
+---
+title: "JavaScript Basics"
+titleLao: "JavaScript ເບື້ອງຕົ້ນ"
+description: "Learn JavaScript fundamentals for web development"
+descriptionLao: "ຮຽນຮູ້ພື້ນຖານ JavaScript ສຳລັບການພັດທະນາເວັບໄຊທ໌"
+tags: ["JavaScript", "Programming", "Web Development"]
+level: "diploma-2"
+course: "JavaScript Basics"
+createdAt: "2020-10-15"
+updatedAt: "2020-10-15"
+---
+
+# JavaScript Basics
+## JavaScript ເບື້ອງຕົ້ນ
+
+JavaScript is a programming language used for web development that makes websites interactive and dynamic.
+
+JavaScript ແມ່ນພາສາໂປຣແກຣມມິ່ງທີ່ໃຊ້ໃນການພັດທະນາເວັບໄຊທ໌ ເຮັດໃຫ້ເວັບໄຊທ໌ມີຄວາມໂຕ້ຕອບແລະມີຊີວິດຊີວາ
+
+## Variables
+
+Declaring variables in JavaScript can use `var`, `let`, or `const`.
+
+```javascript
+// Variables that can be changed
+let name = "John";
+let age = 25;
+
+// Variables that cannot be changed
+const PI = 3.14159;
+
+// Display output
+console.log("Name: " + name);
+console.log("Age: " + age + " years");
+```
+
+## Functions
+
+Functions are groups of statements that can be reused.
+
+```javascript
+// Regular function
+function greet(name) {
+    return "Hello " + name;
+}
+
+// Arrow Function
+const add = (a, b) => {
+    return a + b;
+};
+
+// Function calls
+console.log(greet("John"));
+console.log(add(5, 3));
+```
+
+## DOM Manipulation
+
+DOM (Document Object Model) is accessing and manipulating HTML elements.
+
+```javascript
+// Select elements
+const button = document.getElementById('myButton');
+const title = document.querySelector('h1');
+
+// Change content
+title.textContent = 'New Title';
+
+// Add Event Listener
+button.addEventListener('click', function() {
+    alert('Button clicked!');
+});
+
+// Create new element
+const newDiv = document.createElement('div');
+newDiv.innerHTML = '<p>New content</p>';
+document.body.appendChild(newDiv);
+```
+
+## Arrays and Objects
+
+```javascript
+// Array
+const fruits = ['Apple', 'Banana', 'Orange'];
+fruits.push('Mango'); // Add member
+console.log(fruits.length); // 4
+
+// Object
+const person = {
+    name: 'John',
+    age: 25,
+    city: 'Bangkok',
+    greet: function() {
+        return `Hello, my name is ${this.name}`;
+    }
+};
+
+console.log(person.greet());
+```
+
+## Summary / ສະຫຼຸບ
+
+JavaScript is an important language for web development that helps websites become interactive and versatile.
+
+JavaScript ແມ່ນພາສາທີ່ສຳຄັນສຳລັບການພັດທະນາເວັບໄຊທ໌ ຊ່ວຍໃຫ້ເວັບໄຊທ໌ມີຄວາມໂຕ້ຕອບແລະສາມາດເຮັດວຽກໄດ້ຫຼາກຫຼາຍ

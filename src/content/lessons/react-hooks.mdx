@@ -1,0 +1,95 @@
+---
+title: "React Hooks Tutorial"
+titleLao: "ບົດຮຽນ React Hooks"
+description: "Learn how to use React Hooks for state management and side effects"
+descriptionLao: "ຮຽນຮູ້ການໃຊ້ React Hooks ໃນການຈັດການ state ແລະ side effects"
+tags: ["React", "JavaScript", "Frontend", "Hooks"]
+level: "bachelor-1"
+course: "Web Development"
+createdAt: "2023-09-15"
+updatedAt: "2023-09-15"
+---
+
+# React Hooks Tutorial
+## ບົດຮຽນ React Hooks
+
+React Hooks is a feature added in React 16.8 that allows us to use state and other React features in functional components.
+
+React Hooks ແມ່ນຟີເຈີທີ່ເພີ່ມເຂົ້າມາໃນ React 16.8 ທີ່ຊ່ວຍໃຫ້ເຮົາສາມາດໃຊ້ state ແລະຟີເຈີອື່ນໆ ຂອງ React ໃນ functional components ໄດ້
+
+## useState Hook
+
+useState is a Hook used for managing state in functional components.
+
+```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+## useEffect Hook
+
+useEffect is used for managing side effects such as API calls, subscriptions, or DOM changes.
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetchUser(userId).then(setUser);
+  }, [userId]);
+
+  if (!user) return <div>Loading...</div>;
+
+  return <div>Hello, {user.name}!</div>;
+}
+```
+
+## Custom Hooks
+
+We can create Custom Hooks to share logic between components.
+
+```javascript
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(initialValue);
+
+  return { count, increment, decrement, reset };
+}
+
+// Usage
+function CounterComponent() {
+  const { count, increment, decrement, reset } = useCounter(10);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+## Summary / ສະຫຼຸບ
+
+React Hooks helps us write React components more easily and efficiently without using class components.
+
+React Hooks ຊ່ວຍໃຫ້ເຮົາຂຽນ React components ໄດ້ຢ່າງງ່າຍແລະມີປະສິດທິພາບຫຼາຍຂຶ້ນ ໂດຍບໍ່ຕ້ອງໃຊ້ class components

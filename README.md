@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IT Learning
 
-## Getting Started
+เว็บไซต์บันทึกการเรียน IT ตลอด 5 ปี (ปวส. 3 ปี + ปริญญาตรี 2 ปี)
 
-First, run the development server:
+## ฟีเจอร์หลัก
 
+- 📚 **รายวิชาแยกตามระดับ**: ปวส. ปี 1-3 และ ปริญญาตรี ปี 1-2
+- 📝 **บทเรียน MDX**: เขียนบทเรียนด้วย Markdown พร้อม syntax highlighting
+- 🚀 **Projects Gallery**: แสดงผลงานและโปรเจคทั้งหมด
+- 🔍 **ระบบค้นหา**: ค้นหาบทเรียนและโปรเจค
+- 🌙 **Dark Mode**: รองรับโหมดมืด/สว่าง
+- 🌐 **Multilingual**: รองรับภาษาไทยและลาว
+- 📱 **Responsive**: ใช้งานได้ทุกอุปกรณ์
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Content**: MDX สำหรับบทเรียน
+- **Syntax Highlighting**: Prism.js
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **Deploy**: Vercel
+
+## การติดตั้ง
+
+1. Clone repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd it-learning-journal
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. ติดตั้ง dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. สร้างไฟล์ environment variables:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. รันเซิร์ฟเวอร์พัฒนา:
+```bash
+npm run dev
+```
 
-## Learn More
+5. เปิดเบราว์เซอร์ไปที่ [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## โครงสร้างโปรเจค
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                    # App Router pages
+│   ├── courses/           # หน้ารายวิชา
+│   ├── projects/          # หน้าโปรเจค
+│   ├── search/            # หน้าค้นหา
+│   └── lessons/[slug]/    # หน้าบทเรียน
+├── components/            # React components
+├── lib/                   # Utilities และ contexts
+├── types/                 # TypeScript types
+└── content/              # MDX content files
+    └── lessons/          # ไฟล์บทเรียน MDX
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## การเพิ่มบทเรียนใหม่
 
-## Deploy on Vercel
+1. สร้างไฟล์ MDX ใน `src/content/lessons/`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```mdx
+---
+title: "ชื่อบทเรียน"
+titleLao: "ຊື່ບົດຮຽນ"
+description: "คำอธิบาย"
+descriptionLao: "ຄຳອະທິບາຍ"
+tags: ["React", "JavaScript"]
+level: "bachelor-1"
+course: "Web Development"
+createdAt: "2024-01-01"
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# เนื้อหาบทเรียน
+
+เขียนเนื้อหาด้วย Markdown...
+```
+
+2. เพิ่มลิงก์ในหน้ารายวิชาที่เกี่ยวข้อง
+
+## การเพิ่มโปรเจคใหม่
+
+แก้ไขไฟล์ `src/app/projects/page.tsx` และเพิ่มข้อมูลโปรเจคใหม่ในอาร์เรย์ `projects`
+
+## การ Deploy
+
+1. Push โค้ดไปยัง GitHub
+2. เชื่อมต่อ repository กับ Vercel
+3. Deploy อัตโนมัติ
+
+## คำสั่งสำคัญ
+
+### การใช้งาน
+- ใช้ `npm run build` เพื่อ build สำหรับ production
+- ใช้ `npm run start` เพื่อรันในโหมด production
+- ใช้ `npm run lint` เพื่อตรวจสอบโค้ด
+
+### การปรับแต่ง
+- สีและรูปแบบสามารถปรับแต่งได้ใน `src/app/globals.css`
+- เพิ่มหรือลดภาษาได้ใน `src/lib/language-context.tsx`
+- ปรับแต่ง metadata ใน `src/lib/metadata.ts`
+
+### Performance
+- ใช้ Next.js Image Optimization
+- ใช้ Dynamic Imports สำหรับ components ขนาดใหญ่
+- ใช้ React.memo สำหรับ components ที่ไม่ต้อง re-render บ่อย
+
+## การพัฒนาต่อ
+
+- [ ] เพิ่มระบบจัดการ content ด้วย CMS
+- [ ] เพิ่มระบบ comment
+- [ ] เพิ่มระบบ analytics
+- [ ] เพิ่มการแชร์ social media
+- [ ] เพิ่ม PWA support
+- [ ] เพิ่มระบบ bookmark/favorites
+- [ ] เพิ่มการ export เป็น PDF
+
+## License
+
+MIT License

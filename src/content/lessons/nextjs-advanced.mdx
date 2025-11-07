@@ -1,0 +1,246 @@
+---
+title: "Advanced Next.js"
+titleLao: "Next.js ຂັ້ນສູງ"
+description: "Learn advanced Next.js for web application development"
+descriptionLao: "ຮຽນຮູ້ການໃຊ້ Next.js ໃນລະດັບຂັ້ນສູງສຳລັບການພັດທະນາເວັບແອັບພລິເຄຊັນ"
+tags: ["Next.js", "React", "TypeScript", "SSR", "SSG"]
+level: "bachelor-2"
+course: "Advanced Next.js"
+createdAt: "2023-11-20"
+updatedAt: "2023-11-20"
+---
+
+# Advanced Next.js
+## Next.js ຂັ້ນສູງ
+
+Next.js is a React Framework with comprehensive features for developing production-level web applications.
+
+Next.js ແມ່ນ React Framework ທີ່ມີຟີເຈີຄົບຄົນສຳລັບການພັດທະນາເວັບແອັບພລິເຄຊັນລະດັບ Production
+
+## App Router (Next.js 13+)
+
+App Router is a new way to handle routing in Next.js.
+
+```typescript
+// app/page.tsx - Home page
+export default function HomePage() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+    </div>
+  );
+}
+
+// app/about/page.tsx - About page
+export default function AboutPage() {
+  return (
+    <div>
+      <h1>About Us</h1>
+    </div>
+  );
+}
+
+// app/blog/[slug]/page.tsx - Dynamic Route
+export default function BlogPost({ params }: { params: { slug: string } }) {
+  return (
+    <div>
+      <h1>Article: {params.slug}</h1>
+    </div>
+  );
+}
+```
+
+## Server Components vs Client Components
+
+```typescript
+// Server Component (default)
+async function ServerComponent() {
+  const data = await fetch('https://api.example.com/data');
+  const posts = await data.json();
+  
+  return (
+    <div>
+      {posts.map((post: any) => (
+        <div key={post.id}>{post.title}</div>
+      ))}
+    </div>
+  );
+}
+
+// Client Component
+'use client'
+import { useState } from 'react';
+
+function ClientComponent() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Click: {count}
+    </button>
+  );
+}
+```
+
+## Data Fetching
+
+### Server-side Rendering (SSR)
+
+```typescript
+// app/posts/page.tsx
+async function PostsPage() {
+  // Data will be fetched on every request
+  const res = await fetch('https://api.example.com/posts', {
+    cache: 'no-store' // No cache
+  });
+  const posts = await res.json();
+
+  return (
+    <div>
+      <h1>All Posts</h1>
+      {posts.map((post: any) => (
+        <article key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.excerpt}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+```
+
+### Static Site Generation (SSG)
+
+```typescript
+// app/products/page.tsx
+async function ProductsPage() {
+  // Data will be cached and revalidated every 3600 seconds
+  const res = await fetch('https://api.example.com/products', {
+    next: { revalidate: 3600 }
+  });
+  const products = await res.json();
+
+  return (
+    <div>
+      <h1>All Products</h1>
+      {products.map((product: any) => (
+        <div key={product.id}>
+          <h3>{product.name}</h3>
+          <p>Price: ${product.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+## API Routes
+
+```typescript
+// app/api/users/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function GET() {
+  const users = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' }
+  ];
+  
+  return NextResponse.json(users);
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  
+  // Save data to database
+  const newUser = {
+    id: Date.now(),
+    name: body.name
+  };
+  
+  return NextResponse.json(newUser, { status: 201 });
+}
+```
+
+## Middleware
+
+```typescript
+// middleware.ts
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  // Check authentication
+  const token = request.cookies.get('token');
+  
+  if (!token && request.nextUrl.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+  
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/dashboard/:path*']
+};
+```
+
+## Using TypeScript
+
+```typescript
+// types/index.ts
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: 'admin' | 'user';
+}
+
+export interface Post {
+  id: number;
+  title: string;
+  content: string;
+  author: User;
+  createdAt: string;
+}
+
+// app/users/page.tsx
+import { User } from '@/types';
+
+async function UsersPage() {
+  const res = await fetch('https://api.example.com/users');
+  const users: User[] = await res.json();
+
+  return (
+    <div>
+      <h1>All Users</h1>
+      {users.map((user) => (
+        <div key={user.id}>
+          <h3>{user.name}</h3>
+          <p>{user.email}</p>
+          <span>Role: {user.role}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+## Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Run in production mode
+npm start
+
+# Deploy to Vercel
+npx vercel --prod
+```
+
+## Summary / ສະຫຼຸບ
+
+Next.js is a powerful framework for web application development with comprehensive features from SSR, SSG, API Routes to TypeScript support.
+
+Next.js ແມ່ນ framework ທີ່ທຮົງພະລັງສຳລັບການພັດທະນາເວັບແອັບພລິເຄຊັນ ມີຟີເຈີຄົບຄົນຕັ້ງແຕ່ SSR, SSG, API Routes ຈົນເຖິງ TypeScript support
