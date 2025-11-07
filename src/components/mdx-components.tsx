@@ -5,12 +5,12 @@ import { useTheme } from 'next-themes'
 import { ReactNode } from 'react'
 
 interface CodeBlockProps {
-  children: ReactNode
+  children?: ReactNode
   className?: string
   [key: string]: unknown
 }
 
-function CodeBlock({ children, className, ...props }: CodeBlockProps) {
+function CodeBlock({ children = '', className, ...props }: CodeBlockProps) {
   const { theme } = useTheme()
   const match = /language-(\w+)/.exec(className || '')
   const language = match ? match[1] : ''
@@ -49,7 +49,7 @@ export const mdxComponents: MDXComponents = {
   p: ({ children }) => (
     <p className="mb-4 leading-relaxed">{children}</p>
   ),
-  code: CodeBlock,
+  code: (props: React.ComponentProps<'code'>) => <CodeBlock {...props} />,
   pre: ({ children }) => (
     <div className="mb-6">{children}</div>
   ),
